@@ -121,7 +121,8 @@ bool BigDecimalInt::operator<(const BigDecimalInt &anotherDec) const {
     }
     for(int i = 0; i < bigInt.size(); i++){
         if(bigInt[i] != anotherDec.bigInt[i]){
-            return bigInt[i] < anotherDec.bigInt[i];
+            if(sign) return bigInt[i] < anotherDec.bigInt[i];
+            return anotherDec.bigInt[i] < bigInt[i];
         }
     }
     return false;
