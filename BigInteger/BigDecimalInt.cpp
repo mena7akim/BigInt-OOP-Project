@@ -102,7 +102,7 @@ BigDecimalInt BigDecimalInt::operator-(const BigDecimalInt &anotherDec) const{
     // removing the zeros in the left of the number
     string temp = "";
     bool foundDigit = 0;
-    for(int i = 0; ret.bigInt.size(); i++){
+    for(int i = 0; i < ret.bigInt.size(); i++){
         if(ret.bigInt[i] != '0') foundDigit = 1;
         if(foundDigit) temp += ret.bigInt[i];
     }
