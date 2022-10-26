@@ -1,7 +1,7 @@
 #include "BigDecimalInt.h"
 using namespace std;
 
-BigDecimalInt::BigDecimalInt():bigInt("0"), sign(1){}
+BigDecimalInt::BigDecimalInt(): bigInt("0"), sign(1){}
 
 BigDecimalInt::BigDecimalInt(string decStr) {
     // reject bad inputs
@@ -32,6 +32,8 @@ BigDecimalInt::BigDecimalInt(int decInt) {
     decInt = abs(decInt); // remove the sign in case if decInt was less than zero
     bigInt = to_string(decInt); // convert the number to string
 }
+
+BigDecimalInt::BigDecimalInt(const BigDecimalInt &anotherDec) : bigInt(anotherDec.bigInt), sign(anotherDec.sign) {}
 
 BigDecimalInt BigDecimalInt::operator+(const BigDecimalInt &anotherDec) const{
     if(sign != anotherDec.sign){ // if signs was not the same (-x + y = y - x) , (x + -y = x - y)
@@ -125,7 +127,6 @@ bool BigDecimalInt::operator<(const BigDecimalInt &anotherDec) const {
             return anotherDec.bigInt[i] < bigInt[i];
         }
     }
-    return false;
 }
 
 bool BigDecimalInt::operator>(const BigDecimalInt &anotherDec) const {

@@ -17,6 +17,7 @@ public:
     BigDecimalInt();
     explicit BigDecimalInt (string decStr); // Initializes from string & rejects bad input
     explicit BigDecimalInt (int decInt); // Initialize from integer
+    BigDecimalInt (const BigDecimalInt &anotherDes);
     BigDecimalInt operator+ (const BigDecimalInt &anotherDec) const; // member fn
     BigDecimalInt operator-(const BigDecimalInt &anotherDec) const; // member fn
     bool operator< (const BigDecimalInt &anotherDec) const; // member fn
